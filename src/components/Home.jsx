@@ -44,7 +44,7 @@ const Home = () => {
                 View My Work
               </a>
               <a href="#contact" className="btn-outline">
-                Get In Touch
+                Contact Me
               </a>
             </motion.div>
 
