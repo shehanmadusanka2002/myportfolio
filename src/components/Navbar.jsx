@@ -36,7 +36,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold text-primary"
           >
-            Portfolio
+            Shehan
           </motion.div>
 
           {/* Desktop Navigation */}
