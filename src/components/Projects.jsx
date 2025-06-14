@@ -101,7 +101,7 @@ const Projects = () => {
 
         {/* Filter Buttons */}
         <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-4 sm:px-0"
           variants={containerVariants}
         >
           {technologies.map((tech) => (
@@ -111,7 +111,7 @@ const Projects = () => {
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
-              className={`px-4 py-2 rounded-full transition-all duration-300 ${
+              className={`px-3 py-2 sm:px-4 text-sm sm:text-base rounded-full transition-all duration-300 ${
                 filter === tech
                   ? 'bg-primary text-white shadow-lg'
                   : 'bg-white text-gray-700 hover:bg-primary hover:text-white'
@@ -125,7 +125,7 @@ const Projects = () => {
         {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <motion.div 
-            className="grid lg:grid-cols-3 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-0"
             variants={containerVariants}
             key={filter}
             initial="hidden"
@@ -144,7 +144,7 @@ const Projects = () => {
                   <motion.img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-40 sm:h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   />
@@ -177,18 +177,18 @@ const Projects = () => {
                 </div>
                 
                 <motion.div 
-                  className="p-6"
+                  className="p-4 sm:p-6"
                   variants={containerVariants}
                 >
                   <motion.h3 
-                    className="text-xl font-semibold text-gray-900 mb-2"
+                    className="text-lg sm:text-xl font-semibold text-gray-900 mb-2"
                     whileHover={{ x: 10 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     {project.title}
                   </motion.h3>
                   <motion.p 
-                    className="text-gray-600 mb-4"
+                    className="text-sm sm:text-base text-gray-600 mb-4"
                     whileHover={{ x: 10 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
@@ -197,14 +197,14 @@ const Projects = () => {
                   
                   <motion.div className="mb-4">
                     <motion.h4 
-                      className="font-medium text-gray-900 mb-2"
+                      className="text-sm sm:text-base font-medium text-gray-900 mb-2"
                       whileHover={{ x: 10 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       Key Features:
                     </motion.h4>
                     <motion.ul 
-                      className="text-sm text-gray-600 space-y-1"
+                      className="text-xs sm:text-sm text-gray-600 space-y-1"
                       variants={containerVariants}
                     >
                       {project.features.map((feature, idx) => (
@@ -234,7 +234,7 @@ const Projects = () => {
                   </motion.div>
                   
                   <motion.div 
-                    className="flex flex-wrap gap-2"
+                    className="flex flex-wrap gap-1 sm:gap-2"
                     variants={containerVariants}
                   >
                     {project.technologies.map((tech) => (
@@ -245,7 +245,7 @@ const Projects = () => {
                           backgroundColor: "#3b82f6",
                           color: "white"
                         }}
-                        className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded cursor-pointer"
+                        className="px-2 py-1 bg-blue-100 text-blue-800 text-xs sm:text-sm rounded cursor-pointer"
                       >
                         {tech}
                       </motion.span>

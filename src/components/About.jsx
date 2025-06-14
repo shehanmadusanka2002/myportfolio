@@ -106,11 +106,11 @@ const About = () => {
 
       <div className="container-custom relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 px-4 sm:px-0"
           variants={itemVariants}
         >
           <motion.h2 
-            className="text-4xl font-bold text-gray-900 mb-4"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
             animate={{ 
               backgroundImage: [
                 "linear-gradient(45deg, #4f46e5, #4f46e5)",
@@ -124,7 +124,7 @@ const About = () => {
             About Me
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
             variants={itemVariants}
           >
             I'm a passionate full-stack developer with experience in building scalable web applications.
@@ -133,7 +133,7 @@ const About = () => {
         </motion.div>
 
         <motion.div 
-          className="grid lg:grid-cols-2 gap-12 items-center mb-16"
+          className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 sm:mb-16 px-4 sm:px-0"
           variants={containerVariants}
         >
           <motion.div
@@ -142,14 +142,14 @@ const About = () => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <motion.h3 
-              className="text-2xl font-semibold text-gray-900 mb-6"
+              className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               My Journey
             </motion.h3>
             <motion.div 
-              className="space-y-4 text-gray-600"
+              className="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base"
               variants={containerVariants}
             >
               <motion.p
@@ -186,14 +186,14 @@ const About = () => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <motion.h3 
-              className="text-2xl font-semibold text-gray-900 mb-6"
+              className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               Education & Goals
             </motion.h3>
             <motion.div 
-              className="bg-gray-50 p-6 rounded-lg"
+              className="bg-gray-50 p-4 sm:p-6 rounded-lg"
               whileHover={{ 
                 boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
                 y: -5
@@ -205,14 +205,14 @@ const About = () => {
                 variants={itemVariants}
               >
                 <motion.h4 
-                  className="font-semibold text-gray-900"
+                  className="text-sm sm:text-base font-semibold text-gray-900"
                   whileHover={{ scale: 1.05, x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   Diploma in Information Technology
                 </motion.h4>
                 <motion.p 
-                  className="text-gray-600"
+                  className="text-xs sm:text-sm text-gray-600"
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -224,14 +224,14 @@ const About = () => {
                 variants={itemVariants}
               >
                 <motion.h4 
-                  className="font-semibold text-gray-900"
+                  className="text-sm sm:text-base font-semibold text-gray-900"
                   whileHover={{ scale: 1.05, x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   Career Aspirations
                 </motion.h4>
                 <motion.p 
-                  className="text-gray-600"
+                  className="text-xs sm:text-sm text-gray-600"
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -248,14 +248,14 @@ const About = () => {
           variants={containerVariants}
         >
           <motion.h3 
-            className="text-2xl font-semibold text-gray-900 mb-8 text-center"
+            className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 sm:mb-8 text-center px-4 sm:px-0"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             Technical Skills
           </motion.h3>
           <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-0"
             variants={containerVariants}
           >
             {skills.map((skill, index) => (
@@ -264,7 +264,7 @@ const About = () => {
                 variants={skillCardVariants}
                 whileHover="hover"
                 custom={index}
-                className="bg-white p-6 rounded-lg shadow-lg relative overflow-hidden group"
+                className="bg-white p-4 sm:p-6 rounded-lg shadow-lg relative overflow-hidden group"
               >
                 {/* Background gradient animation */}
                 <motion.div
@@ -292,14 +292,14 @@ const About = () => {
                   {skill.icon}
                 </motion.div>
                 <motion.h4 
-                  className="font-semibold text-gray-900 mb-3"
+                  className="text-sm sm:text-base font-semibold text-gray-900 mb-3"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {skill.category}
                 </motion.h4>
                 <motion.div 
-                  className="flex flex-wrap gap-2"
+                  className="flex flex-wrap gap-1 sm:gap-2"
                   variants={containerVariants}
                 >
                   {skill.technologies.map((tech) => (
@@ -311,7 +311,7 @@ const About = () => {
                         backgroundColor: "#3b82f6",
                         color: "white"
                       }}
-                      className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded cursor-pointer"
+                      className="px-2 py-1 bg-blue-100 text-blue-800 text-xs sm:text-sm rounded cursor-pointer"
                     >
                       {tech}
                     </motion.span>
