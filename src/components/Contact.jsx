@@ -99,7 +99,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Me</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             I'm always interested in new opportunities and collaborations.
             Feel free to reach out if you'd like to discuss a project or just say hello!
