@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 const Navbar = () => {
@@ -23,33 +21,35 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 ease-in-out transform animate-slide-down ${
+        scrolled 
+          ? 'bg-white/95 backdrop-blur-lg shadow-xl border-b border-gray-200/20' 
+          : 'bg-transparent'
       }`}
     >
-      <div className="container-custom">
+      <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold text-primary"
-          >
+          {/* Logo */}
+          <div className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-all duration-300 transform hover:scale-110 cursor-pointer">
             Shehan
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <motion.a
+            {navItems.map((item, index) => (
+              <a
                 key={item.name}
                 href={item.href}
-                whileHover={{ scale: 1.1 }}
-                className="text-gray-700 hover:text-primary transition-colors duration-300"
+                className="relative group text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.name}
-              </motion.a>
+                {/* Animated underline */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                {/* Hover background effect */}
+                <span className="absolute inset-0 bg-blue-50 rounded-lg scale-0 transition-transform duration-300 group-hover:scale-100 -z-10"></span>
+              </a>
             ))}
           </div>
 
@@ -57,34 +57,94 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary"
+              className="relative text-gray-700 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 focus:outline-none p-2"
+              aria-label="Toggle menu"
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              <div className="relative w-6 h-6">
+                <FiMenu 
+                  size={24} 
+                  className={`absolute transition-all duration-300 transform ${
+                    isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+                  }`} 
+                />
+                <FiX 
+                  size={24} 
+                  className={`absolute transition-all duration-300 transform ${
+                    isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
+                  }`} 
+                />
+              </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden bg-white rounded-lg shadow-lg mt-2 py-4"
-          >
-            {navItems.map((item) => (
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl mt-2 py-4 mx-2 border border-gray-200/20">
+            {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50"
+                className="block px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50/80 transition-all duration-300 font-medium relative group"
+                style={{ 
+                  animationDelay: `${index * 50}ms`,
+                  transform: isOpen ? 'translateX(0)' : 'translateX(-20px)',
+                  animation: isOpen ? `slideInLeft 0.3s ease-out ${index * 50}ms both` : 'none'
+                }}
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                {/* Mobile item background animation */}
+                <span className="absolute left-0 top-0 h-full w-1 bg-blue-600 transform scale-y-0 transition-transform duration-300 group-hover:scale-y-100"></span>
               </a>
             ))}
-          </motion.div>
-        )}
+          </div>
+        </div>
       </div>
-    </motion.nav>
+
+      {/* Custom CSS for additional animations */}
+      <style jsx>{`
+        @keyframes slide-down {
+          from {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            transform: translateX(-20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        .animate-slide-down {
+          animation: slide-down 0.6s ease-out;
+        }
+
+        /* Smooth backdrop blur transition */
+        .backdrop-blur-lg {
+          backdrop-filter: blur(16px);
+        }
+
+        /* Enhanced hover effects */
+        @media (hover: hover) {
+          .group:hover {
+            transform: translateY(-1px);
+          }
+        }
+      `}</style>
+    </nav>
   );
 };
 
