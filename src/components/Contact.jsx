@@ -114,31 +114,27 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-8">Contact Information</h3>
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-4"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                    {info.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900">{info.label}</h4>
-                    <a
-                      href={info.href}
-                      className="text-gray-600 hover:text-primary transition-colors"
-                    >
-                      {info.value}
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+            <h3 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+            <div className="space-y-4">
+              <div className="glass-card p-4">
+                <div className="text-sm text-gray-700">Email</div>
+                <a href="mailto:shehan8998@gmail.com" className="font-medium text-primary">shehan8998@gmail.com</a>
+              </div>
+
+              <div className="glass-card p-4">
+                <div className="text-sm text-gray-700">Phone</div>
+                <a href="tel:0762388479" className="font-medium text-primary">0762388479</a>
+              </div>
+
+              <div className="glass-card p-4">
+                <div className="text-sm text-gray-700">Location</div>
+                <div className="font-medium">Matara, Sri Lanka</div>
+              </div>
+
+              <div className="glass-card p-4">
+                <div className="text-sm text-gray-700">Availability</div>
+                <div className="font-medium">Open for opportunities • Remote / Relocate</div>
+              </div>
             </div>
           </motion.div>
 
@@ -151,93 +147,36 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                      errors.name ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder="Your Name"
-                  />
+                <div className="floating-field">
+                  <input placeholder=" " type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={`${errors.name ? 'border-red-500' : ''}`} />
+                  <label htmlFor="name">Name *</label>
                   {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder="your.email@example.com"
-                  />
+
+                <div className="floating-field">
+                  <input placeholder=" " type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={`${errors.email ? 'border-red-500' : ''}`} />
+                  <label htmlFor="email">Email *</label>
                   {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                 </div>
               </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                    errors.subject ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="Subject"
-                />
+
+              <div className="floating-field">
+                <input placeholder=" " type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className={`${errors.subject ? 'border-red-500' : ''}`} />
+                <label htmlFor="subject">Subject *</label>
                 {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
               </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none ${
-                    errors.message ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="Your message..."
-                ></textarea>
+
+              <div className="floating-field">
+                <textarea placeholder=" " id="message" name="message" rows="6" value={formData.message} onChange={handleChange} className={`${errors.message ? 'border-red-500' : ''}`} />
+                <label htmlFor="message">Message *</label>
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
-              
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+
+              <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" disabled={isSubmitting} className="w-full btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
                 {isSubmitting ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
-                  <>
-                    <FiSend />
-                    <span>Send Message</span>
-                  </>
+                  <span>Send Message</span>
                 )}
               </motion.button>
             </form>

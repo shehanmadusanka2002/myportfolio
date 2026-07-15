@@ -1,33 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --bg: #F8FAFC;
+  --glass: rgba(255,255,255,0.6);
+  --glass-dark: rgba(15,23,42,0.48);
+  --grad: linear-gradient(90deg,#3B82F6,#6366F1,#06b6d4);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   body {
     font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: #0f172a;
+  }
+
+  .dark body {
+    background-color: #0b1220;
+    color: #e6eef8;
   }
 }
 
 @layer components {
+  .glass-card{
+    @apply bg-white/60 dark:bg-[#07102a]/60 backdrop-blur-md rounded-2xl shadow-xl border border-white/30;
+  }
+
+  .service-card{
+    @apply relative bg-white/60 dark:bg-[#07102a]/60 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 overflow-hidden transition-all duration-300;
+  }
+
+  .service-card:hover{
+    @apply shadow-2xl;
+  }
+
+  .service-icon{
+    @apply w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-primary to-secondary shadow-md;
+  }
+
+  .glass-navbar{
+    @apply backdrop-blur-md bg-white/40 dark:bg-[#07102a]/40 border border-white/10 rounded-xl;
+  }
+
   .btn-primary {
-    @apply bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105;
+    @apply bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl;
   }
-  
+
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-xl transition-all duration-300;
   }
-  
+
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-24 px-6 md:px-10 lg:px-16;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto;
+  }
+  .floating-field{
+    @apply relative w-full;
+  }
+  .floating-field input, .floating-field textarea{
+    @apply w-full bg-transparent border border-gray-300 dark:border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-0;
+  }
+  .floating-field label{
+    @apply absolute left-4 top-3 text-sm text-gray-500 transition-all pointer-events-none;
+  }
+  .floating-field input:focus + label,
+  .floating-field input:not(:placeholder-shown) + label,
+  .floating-field textarea:focus + label,
+  .floating-field textarea:not(:placeholder-shown) + label{
+    @apply -translate-y-4 text-xs left-3 bg-white/0 px-1;
   }
 }

@@ -1,25 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import MainLayout from './layouts/MainLayout';
 import Home from './components/Home';
 import About from './components/About';
+import TechStack from './components/TechStack';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
+import Services from './components/Services';
+import WhyHireMe from './components/WhyHireMe';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar />
-        <main>
-          <Home />
-          <About />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <MainLayout>
+        <Home />
+        <About />
+        <TechStack />
+        <Projects />
+        <Experience />
+        <Services />
+        <WhyHireMe />
+        <Contact />
+      </MainLayout>
     </Router>
   );
 }
