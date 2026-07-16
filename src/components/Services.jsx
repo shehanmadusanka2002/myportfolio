@@ -13,22 +13,22 @@ const items = [
 
 const Services = () => {
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-padding bg-white dark:bg-deep-navy">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center mb-8">
           <p className="text-sm text-primary font-semibold uppercase tracking-wider">Services</p>
-          <h2 className="text-3xl font-bold mt-2">What I do</h2>
-          <p className="text-gray-600 mt-2">From frontend experiences to backend systems and cloud deployments — focused on delivery.</p>
+          <h2 className="text-3xl font-bold mt-2 text-main-text dark:text-soft-bg">What I do</h2>
+          <p className="text-body-text mt-2">From frontend experiences to backend systems and cloud deployments — focused on delivery.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((it, idx) => (
             <motion.div key={it.title} layout whileHover={{ y: -8, scale: 1.01 }} transition={{ type: 'spring', stiffness: 260 }} className="service-card p-6">
               <div className="service-icon mb-4">
-                <it.icon size={20} aria-hidden className="text-white" />
+                <it.icon size={20} aria-hidden />
               </div>
-              <h3 className="font-semibold text-lg mb-2">{it.title}</h3>
-              <p className="text-sm text-gray-600">{it.desc}</p>
+              <h3 className="font-semibold text-lg mb-2 text-main-text dark:text-soft-bg">{it.title}</h3>
+              <p className="text-sm text-body-text">{it.desc}</p>
             </motion.div>
           ))}
         </div>

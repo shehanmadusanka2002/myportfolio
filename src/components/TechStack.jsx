@@ -13,12 +13,12 @@ const categories = [
 
 const TechStack = () => {
   return (
-    <section id="tech" className="section-padding bg-white">
+    <section id="tech" className="section-padding bg-soft-bg dark:bg-deep-navy">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center mb-8">
           <p className="text-sm text-primary font-semibold uppercase tracking-wider">Tech Stack</p>
-          <h2 className="text-3xl font-bold mt-2">Core technologies & tools</h2>
-          <p className="text-gray-600 mt-2">Organized by capability: Frontend, Backend, Database, Cloud, DevOps, and Tools.</p>
+          <h2 className="text-3xl font-bold mt-2 text-main-text dark:text-soft-bg">Core technologies & tools</h2>
+          <p className="text-body-text mt-2">Organized by capability: Frontend, Backend, Database, Cloud, DevOps, and Tools.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

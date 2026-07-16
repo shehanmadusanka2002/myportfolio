@@ -28,8 +28,8 @@ const StatCard = ({ value, label, className = '' }) => {
 
   return (
     <div ref={ref} className={"glass-card flex flex-col items-start gap-1 p-4 " + className}>
-      <div className="text-2xl sm:text-3xl font-extrabold text-dark">{display}</div>
-      <div className="text-sm text-gray-500">{label}</div>
+      <div className="text-2xl sm:text-3xl font-extrabold text-main-text dark:text-soft-bg">{display}</div>
+      <div className="text-sm text-muted-text">{label}</div>
     </div>
   );
 };

@@ -5,10 +5,9 @@
 @tailwind utilities;
 
 :root{
-  --bg: #F8FAFC;
-  --glass: rgba(255,255,255,0.6);
-  --glass-dark: rgba(15,23,42,0.48);
-  --grad: linear-gradient(90deg,#3B82F6,#6366F1,#06b6d4);
+  --bg: #FFFFFF;
+  --glass: rgba(255,255,255,0.8);
+  --glass-dark: rgba(15,23,42,0.6);
 }
 
 @layer base {
@@ -21,42 +20,42 @@
   body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg);
-    color: #0f172a;
+    color: theme('colors.body-text');
   }
 
   .dark body {
-    background-color: #0b1220;
-    color: #e6eef8;
+    background-color: theme('colors.deep-navy');
+    color: theme('colors.soft-bg');
   }
 }
 
 @layer components {
   .glass-card{
-    @apply bg-white/60 dark:bg-[#07102a]/60 backdrop-blur-md rounded-2xl shadow-xl border border-white/30;
+    @apply bg-white dark:bg-deep-navy/80 backdrop-blur-md rounded-2xl shadow-sm border border-border transition-all duration-300;
   }
 
   .service-card{
-    @apply relative bg-white/60 dark:bg-[#07102a]/60 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 overflow-hidden transition-all duration-300;
+    @apply relative bg-white dark:bg-deep-navy backdrop-blur-md rounded-2xl shadow-sm border border-border overflow-hidden transition-all duration-300;
   }
 
   .service-card:hover{
-    @apply shadow-2xl;
+    @apply shadow-md border-active-border -translate-y-1;
   }
 
   .service-icon{
-    @apply w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-primary to-secondary shadow-md;
+    @apply w-12 h-12 rounded-lg flex items-center justify-center bg-hero-bg text-primary shadow-sm;
   }
 
   .glass-navbar{
-    @apply backdrop-blur-md bg-white/40 dark:bg-[#07102a]/40 border border-white/10 rounded-xl;
+    @apply backdrop-blur-md bg-white/80 dark:bg-deep-navy/80 border-b border-border;
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl;
+    @apply bg-primary text-white font-semibold py-3 px-6 rounded-xl shadow-sm transition-all duration-300 hover:bg-dark-blue hover:-translate-y-0.5 hover:shadow-md;
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-xl transition-all duration-300;
+    @apply border-2 border-primary text-primary bg-white hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-xl transition-all duration-300;
   }
 
   .section-padding {
@@ -70,15 +69,18 @@
     @apply relative w-full;
   }
   .floating-field input, .floating-field textarea{
-    @apply w-full bg-transparent border border-gray-300 dark:border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-0;
+    @apply w-full bg-slate-800 border border-slate-700 text-soft-bg rounded-lg py-3 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors;
+  }
+  .floating-field input::placeholder, .floating-field textarea::placeholder{
+    color: transparent; /* handled by label */
   }
   .floating-field label{
-    @apply absolute left-4 top-3 text-sm text-gray-500 transition-all pointer-events-none;
+    @apply absolute left-4 top-3 text-sm text-[#94A3B8] transition-all pointer-events-none;
   }
   .floating-field input:focus + label,
   .floating-field input:not(:placeholder-shown) + label,
   .floating-field textarea:focus + label,
   .floating-field textarea:not(:placeholder-shown) + label{
-    @apply -translate-y-4 text-xs left-3 bg-white/0 px-1;
+    @apply -translate-y-4 text-xs left-3 bg-slate-800 px-1 text-primary;
   }
 }

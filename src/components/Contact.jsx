@@ -90,7 +90,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding bg-slate-950 border-t border-slate-900 shadow-xl">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -99,8 +99,8 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Me</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-white drop-shadow-[0_0_8px_rgba(34,211,238,0.3)] mb-4">Contact Me</h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             I'm always interested in new opportunities and collaborations.
             Feel free to reach out if you'd like to discuss a project or just say hello!
           </p>
@@ -114,26 +114,26 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-semibold text-white mb-6">Contact Information</h3>
             <div className="space-y-4">
-              <div className="glass-card p-4">
-                <div className="text-sm text-gray-700">Email</div>
-                <a href="mailto:shehan8998@gmail.com" className="font-medium text-primary">shehan8998@gmail.com</a>
+              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 hover:border-cyan-400/50 transition-colors">
+                <div className="text-sm text-gray-500">Email</div>
+                <a href="mailto:shehan8998@gmail.com" className="font-medium text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.4)] hover:text-cyan-300">shehan8998@gmail.com</a>
               </div>
 
-              <div className="glass-card p-4">
-                <div className="text-sm text-gray-700">Phone</div>
-                <a href="tel:0762388479" className="font-medium text-primary">0762388479</a>
+              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 hover:border-cyan-400/50 transition-colors">
+                <div className="text-sm text-gray-500">Phone</div>
+                <a href="tel:0762388479" className="font-medium text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.4)] hover:text-cyan-300">0762388479</a>
               </div>
 
-              <div className="glass-card p-4">
-                <div className="text-sm text-gray-700">Location</div>
-                <div className="font-medium">Matara, Sri Lanka</div>
+              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 hover:border-cyan-400/50 transition-colors">
+                <div className="text-sm text-gray-500">Location</div>
+                <div className="font-medium text-gray-300">Matara, Sri Lanka</div>
               </div>
 
-              <div className="glass-card p-4">
-                <div className="text-sm text-gray-700">Availability</div>
-                <div className="font-medium">Open for opportunities • Remote / Relocate</div>
+              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 hover:border-cyan-400/50 transition-colors">
+                <div className="text-sm text-gray-500">Availability</div>
+                <div className="font-medium text-gray-300">Open for opportunities • Remote / Relocate</div>
               </div>
             </div>
           </motion.div>
@@ -150,31 +150,31 @@ const Contact = () => {
                 <div className="floating-field">
                   <input placeholder=" " type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={`${errors.name ? 'border-red-500' : ''}`} />
                   <label htmlFor="name">Name *</label>
-                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                  {errors.name && <p className="text-red-400 text-sm mt-1 font-medium">{errors.name}</p>}
                 </div>
 
                 <div className="floating-field">
                   <input placeholder=" " type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={`${errors.email ? 'border-red-500' : ''}`} />
                   <label htmlFor="email">Email *</label>
-                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                  {errors.email && <p className="text-red-400 text-sm mt-1 font-medium">{errors.email}</p>}
                 </div>
               </div>
 
               <div className="floating-field">
                 <input placeholder=" " type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className={`${errors.subject ? 'border-red-500' : ''}`} />
                 <label htmlFor="subject">Subject *</label>
-                {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
+                {errors.subject && <p className="text-red-400 text-sm mt-1 font-medium">{errors.subject}</p>}
               </div>
 
               <div className="floating-field">
                 <textarea placeholder=" " id="message" name="message" rows="6" value={formData.message} onChange={handleChange} className={`${errors.message ? 'border-red-500' : ''}`} />
                 <label htmlFor="message">Message *</label>
-                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                {errors.message && <p className="text-red-400 text-sm mt-1 font-medium">{errors.message}</p>}
               </div>
 
-              <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" disabled={isSubmitting} className="w-full btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+              <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" disabled={isSubmitting} className="w-full bg-cyan-400 text-black font-semibold py-3 px-6 rounded-xl shadow-[0_0_12px_rgba(34,211,238,0.8)] transition-all duration-300 hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,1)] flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
                 {isSubmitting ? (
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
                 ) : (
                   <span>Send Message</span>
                 )}
