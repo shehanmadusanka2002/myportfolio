@@ -81,7 +81,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex items-center space-x-4 flex-1 justify-end text-sm">
+        <div className="hidden md:flex items-center space-x-4 flex-1 justify-end text-sm">
           {NAV_ITEMS.map(item => (
             <a
               key={item.name}
@@ -106,8 +106,8 @@ const Navbar = () => {
             {dark ? <FiSun className="text-yellow-400" /> : <FiMoon className="text-indigo-600" />}
           </button>
 
-          <div className="hidden">
-            <button onClick={() => setIsOpen(true)} className="p-2 rounded-lg bg-white/70 dark:bg-black/50 shadow-sm">
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(true)} className="p-2 rounded-lg bg-slate-900 border border-slate-800 shadow-sm hover:border-cyan-400/50 hover:text-cyan-400 transition-all text-white">
               <FiMenu size={20} />
             </button>
           </div>
@@ -120,20 +120,20 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="sm:hidden mt-4 px-4 pb-4"
+            className="md:hidden mt-4 px-4 pb-4"
           >
-            <div className="bg-white/95 dark:bg-[#07102a]/95 rounded-xl shadow-2xl p-4 space-y-3">
+            <div className="bg-slate-900/95 border border-cyan-400/20 backdrop-blur-lg rounded-xl shadow-[0_0_20px_rgba(34,211,238,0.15)] p-4 space-y-3 text-white">
               <div className="flex items-center justify-between">
-                <div className="font-semibold">Navigation</div>
-                <button onClick={() => setIsOpen(false)} className="p-2">
-                  <FiX />
+                <div className="font-semibold text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.4)]">Navigation</div>
+                <button onClick={() => setIsOpen(false)} className="p-2 hover:text-cyan-400 transition-colors">
+                  <FiX size={20} />
                 </button>
               </div>
               <div className="flex flex-col">
                 {NAV_ITEMS.map(item => (
-                  <a key={item.name} href={item.href} onClick={(e) => handleNavClick(e, item.href, item.name)} className="py-3 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-black/30 flex items-center gap-3">
-                    <span className={`w-2 h-2 rounded-full ${active === item.name ? 'bg-primary' : 'bg-gray-300'}`} />
-                    <span>{item.name}</span>
+                  <a key={item.name} href={item.href} onClick={(e) => handleNavClick(e, item.href, item.name)} className="py-3 px-3 rounded-lg hover:bg-slate-800 text-gray-300 hover:text-cyan-300 transition-colors flex items-center gap-3">
+                    <span className={`w-2 h-2 rounded-full ${active === item.name ? 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'bg-gray-600'}`} />
+                    <span className={active === item.name ? 'text-cyan-400' : ''}>{item.name}</span>
                   </a>
                 ))}
               </div>

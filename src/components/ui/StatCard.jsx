@@ -27,9 +27,9 @@ const StatCard = ({ value, label, className = '' }) => {
   }, [inView, value]);
 
   return (
-    <div ref={ref} className={"glass-card flex flex-col items-start gap-1 p-4 " + className}>
-      <div className="text-2xl sm:text-3xl font-extrabold text-main-text dark:text-soft-bg">{display}</div>
-      <div className="text-sm text-muted-text">{label}</div>
+    <div ref={ref} className={"glass-card flex flex-col items-center sm:items-start gap-1 p-2 sm:p-4 text-center sm:text-left " + className}>
+      <div className="text-xl sm:text-3xl font-extrabold text-main-text dark:text-soft-bg">{display}</div>
+      <div className="text-xs sm:text-sm text-muted-text w-full break-words">{label}</div>
     </div>
   );
 };

@@ -38,20 +38,26 @@ const Experience = () => {
 
           {/* Right Column: Timeline */}
           <div className="relative w-full">
-            {/* We align the timeline line to the left for better spacing in a column */}
-            <div className="absolute left-[20px] md:left-1/2 -ml-px top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan-400 to-transparent opacity-50 shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
-            <div className="space-y-8">
+            {/* Timeline line */}
+            <div className="absolute left-[16px] md:left-1/2 -ml-[1px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan-400 to-transparent opacity-50 shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+            
+            <div className="space-y-10">
               {timeline.map((item, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-4 md:gap-6 relative z-10">
-                  <div className="w-[120px] md:w-1/2 pr-0 md:pr-6 text-left md:text-right flex-shrink-0">
+                <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-start gap-1 md:gap-6 relative z-10 pl-[40px] md:pl-0">
+                  {/* Left (Year) */}
+                  <div className="w-full md:w-1/2 pr-0 md:pr-6 text-left md:text-right flex-shrink-0 mt-0.5">
                     <div className="text-sm text-gray-400 font-medium">{item.year}</div>
                   </div>
-                  <div className="absolute left-[12px] md:static md:left-auto mt-1 md:mt-0">
-                    <div className="w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-black shadow-[0_0_12px_rgba(34,211,238,1)]" />
+                  
+                  {/* Dot */}
+                  <div className="absolute left-[8px] md:left-1/2 md:-ml-[8px] mt-1.5 md:mt-1">
+                    <div className="w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-slate-950 shadow-[0_0_12px_rgba(34,211,238,1)]" />
                   </div>
-                  <div className="flex-1 pl-[40px] md:pl-6">
+                  
+                  {/* Right (Content) */}
+                  <div className="flex-1 md:pl-6 w-full">
                     <h3 className="text-lg font-semibold text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.4)]">{item.title}</h3>
-                    <p className="text-sm text-gray-300 mt-2">{item.detail}</p>
+                    <p className="text-sm text-gray-300 mt-1">{item.detail}</p>
                   </div>
                 </motion.div>
               ))}

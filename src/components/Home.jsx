@@ -33,11 +33,11 @@ const Home = () => {
           {/* Left - Headline */}
           <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="order-2 lg:order-1">
             <div className="mb-4 text-sm text-cyan-400 font-medium uppercase tracking-wider drop-shadow-[0_0_4px_rgba(34,211,238,0.4)]">Hi, I build delightful software</div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white mb-4 tracking-tight drop-shadow-[0_0_8px_rgba(34,211,238,0.2)]">
-              I'm <span className="block text-5xl sm:text-6xl text-cyan-400 font-black mt-1 drop-shadow-[0_0_12px_rgba(34,211,238,0.4)]">Shehan Madhusanka</span>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white mb-4 tracking-tight drop-shadow-[0_0_8px_rgba(34,211,238,0.2)]">
+              I'm <span className="block text-4xl sm:text-6xl text-cyan-400 font-black mt-1 drop-shadow-[0_0_12px_rgba(34,211,238,0.4)]">Shehan Madhusanka</span>
             </h1>
 
-            <p className="text-lg text-gray-400 mb-6 max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-400 mb-6 max-w-2xl leading-relaxed">
               Full Stack Software Engineer — designing scalable enterprise applications using Spring Boot, React, Node.js, and Cloud-native architectures.
             </p>
 
@@ -56,26 +56,26 @@ const Home = () => {
 
             {/* Stats */}
             <div className="flex flex-wrap gap-4">
-              <motion.div whileHover={{ y: -6 }} className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all px-6 py-4 w-40 text-white">
-                <div className="text-2xl font-bold">12+</div>
-                <div className="text-sm text-gray-500">Projects</div>
+              <motion.div whileHover={{ y: -6 }} className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all px-4 sm:px-6 py-4 flex-1 min-w-[140px] sm:w-40 text-white">
+                <div className="text-xl sm:text-2xl font-bold">12+</div>
+                <div className="text-xs sm:text-sm text-gray-500">Projects</div>
               </motion.div>
-              <motion.div whileHover={{ y: -6 }} className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all px-6 py-4 w-48 text-white">
-                <div className="text-2xl font-bold">25+</div>
-                <div className="text-sm text-gray-500">Technologies</div>
+              <motion.div whileHover={{ y: -6 }} className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all px-4 sm:px-6 py-4 flex-1 min-w-[140px] sm:w-48 text-white">
+                <div className="text-xl sm:text-2xl font-bold">25+</div>
+                <div className="text-xs sm:text-sm text-gray-500">Technologies</div>
               </motion.div>
-              <motion.div whileHover={{ y: -6 }} className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all px-6 py-4 w-56 text-white">
-                <div className="text-2xl font-bold text-cyan-400 tracking-[0.2em]">• • • • •</div>
-                <div className="text-sm text-gray-500">GitHub Contributions</div>
+              <motion.div whileHover={{ y: -6 }} className="bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all px-4 sm:px-6 py-4 w-full sm:w-auto flex-1 min-w-[200px] text-white">
+                <div className="text-xl sm:text-2xl font-bold text-cyan-400 tracking-[0.2em]">• • • • •</div>
+                <div className="text-xs sm:text-sm text-gray-500">GitHub Contributions</div>
               </motion.div>
             </div>
           </motion.div>
 
           {/* Right - Visual */}
-          <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="order-1 lg:order-2 flex justify-center">
-            <div className="relative p-6">
+          <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="order-1 lg:order-2 flex justify-center mt-10 lg:mt-0">
+            <div className="relative p-2 sm:p-6">
               <div className="rounded-full p-1 bg-cyan-400/10 border border-cyan-400/30 shadow-[0_0_30px_rgba(34,211,238,0.2)]">
-                <div className="rounded-full overflow-hidden w-72 h-72 sm:w-80 sm:h-80 bg-slate-900">
+                <div className="rounded-full overflow-hidden w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-slate-900">
                   <img src="profile.jpg" alt="Shehan" className="object-cover w-full h-full" />
                 </div>
               </div>

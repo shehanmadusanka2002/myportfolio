@@ -7,9 +7,9 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-white dark:bg-deep-navy">
       <div className="container-custom grid lg:grid-cols-2 gap-10 items-start">
-        <div className="space-y-6">
-          <motion.h2 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl font-bold">About Me</motion.h2>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1 }} className="prose max-w-none text-body-text">
+        <div className="space-y-6 flex flex-col items-center lg:items-start">
+          <motion.h2 initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl font-bold text-center lg:text-left">About Me</motion.h2>
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1 }} className="prose max-w-none text-body-text text-center lg:text-left">
             <p>
               A dedicated Full Stack Developer passionate about building scalable enterprise software using Spring Boot, React, Node.js, AWS, Docker, CI/CD, and Microservices.
             </p>
@@ -18,7 +18,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-3 gap-4 mt-2">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-4 w-full">
             <StatCard value="12+" label="Projects" />
             <StatCard value="25+" label="Technologies" />
             <StatCard value="100%" label="Dedication" />
