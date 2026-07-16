@@ -64,7 +64,7 @@ const Navbar = () => {
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed inset-x-0 top-6 z-50 flex justify-center transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md border-b border-cyan-400/20 shadow-[0_4px_30px_rgba(34,211,238,0.1)] py-2' : 'bg-transparent py-4'
+      className={`fixed inset-x-0 top-6 z-50 flex flex-col items-center transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md border-b border-cyan-400/20 shadow-[0_4px_30px_rgba(34,211,238,0.1)] py-2' : 'bg-transparent py-4'
         }`}
       ref={navRef}
     >
@@ -120,7 +120,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden mt-4 px-4 pb-4"
+            className="md:hidden mt-4 px-4 pb-4 w-full max-w-7xl mx-auto"
           >
             <div className="bg-slate-900/95 border border-cyan-400/20 backdrop-blur-lg rounded-xl shadow-[0_0_20px_rgba(34,211,238,0.15)] p-4 space-y-3 text-white">
               <div className="flex items-center justify-between">
